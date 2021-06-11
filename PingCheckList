@@ -1,0 +1,12 @@
+#You must edit line 3 before running and update the list C:\Temp\MachineList.txt
+$InputFile = 'C:\Temp\MachineList.txt'
+$machines = Get-content $InputFile
+
+foreach ($machine in $machines){
+ if (Test-Connection -ComputerName $machine -Count 2 -ErrorAction SilentlyContinue){
+   Write-Host "$machine,up" -ForegroundColor Green
+ }
+ else{
+   Write-Host "$machine,down" -ForegroundColor Red
+     } 
+ }
