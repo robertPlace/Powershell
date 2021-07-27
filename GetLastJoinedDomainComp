@@ -1,0 +1,2 @@
+$Joined = [DateTime]::Today.AddDays(-60)
+Get-ADComputer -Filter 'WhenCreated -ge $joined' -Properties whenCreated | Format-Table Name,whenCreated,distinguishedName -Autosize -Wrap
